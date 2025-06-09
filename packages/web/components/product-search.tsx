@@ -1,13 +1,13 @@
 "use client"
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Checkbox } from "@/components/ui/checkbox"
-import { Star, Search } from "lucide-react"
+import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { Checkbox } from "@/components/ui/checkbox"
+import { Input } from "@/components/ui/input"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Search, Star } from "lucide-react"
+import { useState } from "react"
 
 interface Product {
   id: string
@@ -169,7 +169,7 @@ export function ProductSearch() {
           </Select>
 
           <div className="flex items-center space-x-2">
-            <Checkbox id="safe-only" checked={showSafeOnly} onCheckedChange={setShowSafeOnly} />
+            <Checkbox id="safe-only" checked={showSafeOnly} onCheckedChange={(checked) => setShowSafeOnly(checked === "indeterminate" ? false : checked)} />
             <label htmlFor="safe-only" className="text-sm font-medium">
               Safe products only
             </label>
