@@ -1,11 +1,11 @@
+import { ChatInterface } from "@/components/chat-interface"
+import { ProductSearch } from "@/components/product-search"
+import { RecipeSearch } from "@/components/recipe-search"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Search, MessageCircle, ChefHat, ShoppingCart } from "lucide-react"
+import { ChefHat, MessageCircle, Search, ShoppingCart } from "lucide-react"
 import Link from "next/link"
-import { ProductSearch } from "@/components/product-search"
-import { RecipeSearch } from "@/components/recipe-search"
-import { ChatInterface } from "@/components/chat-interface"
 
 export default function HomePage() {
   return (
@@ -98,19 +98,19 @@ export default function HomePage() {
           </CardHeader>
           <CardContent className="space-y-2 text-sm">
             <div className="flex justify-between items-center py-1 border-b">
-              <span>"Oat milk brands"</span>
+              <span>&quot;Oat milk brands&quot;</span>
               <Button variant="ghost" size="sm">
                 <Search className="w-3 h-3" />
               </Button>
             </div>
             <div className="flex justify-between items-center py-1 border-b">
-              <span>"Dairy-free chocolate"</span>
+              <span>&quot;Dairy-free chocolate&quot;</span>
               <Button variant="ghost" size="sm">
                 <Search className="w-3 h-3" />
               </Button>
             </div>
             <div className="flex justify-between items-center py-1">
-              <span>"Coconut yogurt alternatives"</span>
+              <span>&quot;Coconut yogurt alternatives&quot;</span>
               <Button variant="ghost" size="sm">
                 <Search className="w-3 h-3" />
               </Button>
