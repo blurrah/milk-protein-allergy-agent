@@ -2,11 +2,12 @@ import { openai } from '@ai-sdk/openai';
 import { Agent } from '@mastra/core/agent';
 import { LibSQLStore } from '@mastra/libsql';
 import { Memory } from '@mastra/memory';
-import { getFoodInformationTool } from '../tools/get-food-information-tool';
+import { foodWorkflow } from '../workflow/workflow';
 
 export const milkAllergyAgent = new Agent({
   name: 'Milk Allergy Agent',
-  tools: { getFoodInformationTool },
+  // tools: { getFoodInformationTool },
+  workflows: { foodWorkflow },
   instructions: `
       You are a helpful assistant that provides food allergy information for milk protein allergy. You help with finding food/food replacements for milk protein allergy.
 
@@ -16,7 +17,7 @@ export const milkAllergyAgent = new Agent({
       - You will supply helpful alternatives for the food if it contains milk protein
       - Keep responses concise but informative
 
-      Use the getFoodInformationTool to get food information.
+      Use the foodWorkflow to get food information.
 `,
   model: openai('gpt-4o-mini'),
   memory: new Memory({

@@ -14,7 +14,7 @@ export const getFoodInformationTool = createTool({
   },
 });
 
-async function getFoodInformation(foodName: string) {
+export async function getFoodInformation(foodName: string) {
   const response = await fetch(`https://world.openfoodfacts.org/cgi/search.pl?search_terms=${foodName}&search_simple=1&json=1`, {
 
   });
@@ -24,17 +24,12 @@ async function getFoodInformation(foodName: string) {
 
   const data = await response.json();
 
-  logger.info("food information", { products: Object.keys(data.products), isArray: Array.isArray(data.products)  });
+  logger.info("food information", { products: Object.keys(data.products), isArray: Array.isArray(data.products), isData: !!data  });
 
-  if (!data || Array.isArray(data.products) || data.products.length === 0) {
+  if (!data || !Array.isArray(data.products)) {
     throw new Error(`No food information found for ${foodName}`);
   }
 
-  const product = data.products[0];
+  return data.products[0]
 
-  if (!product) {
-    throw new Error(`No food information found for ${foodName}`);
-  }
-
-  return product;
 }
