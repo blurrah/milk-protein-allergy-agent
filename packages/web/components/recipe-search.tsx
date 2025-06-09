@@ -1,13 +1,13 @@
 "use client"
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Checkbox } from "@/components/ui/checkbox"
-import { Star, Search, Clock, Users } from "lucide-react"
+import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { Checkbox } from "@/components/ui/checkbox"
+import { Input } from "@/components/ui/input"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Clock, Search, Star, Users } from "lucide-react"
+import { useState } from "react"
 
 interface Recipe {
   id: string
@@ -249,19 +249,19 @@ export function RecipeSearch() {
         {/* Dietary Filters */}
         <div className="flex flex-wrap gap-4">
           <div className="flex items-center space-x-2">
-            <Checkbox id="dairy-free" checked={dairyFreeOnly} onCheckedChange={setDairyFreeOnly} />
+            <Checkbox id="dairy-free" checked={dairyFreeOnly} onCheckedChange={(checked) => setDairyFreeOnly(checked === "indeterminate" ? false : checked)} />
             <label htmlFor="dairy-free" className="text-sm font-medium">
               Dairy-Free
             </label>
           </div>
           <div className="flex items-center space-x-2">
-            <Checkbox id="soy-free" checked={soyFreeOnly} onCheckedChange={setSoyFreeOnly} />
+            <Checkbox id="soy-free" checked={soyFreeOnly} onCheckedChange={(checked) => setSoyFreeOnly(checked === "indeterminate" ? false : checked)} />
             <label htmlFor="soy-free" className="text-sm font-medium">
               Soy-Free
             </label>
           </div>
           <div className="flex items-center space-x-2">
-            <Checkbox id="vegan" checked={veganOnly} onCheckedChange={setVeganOnly} />
+            <Checkbox id="vegan" checked={veganOnly} onCheckedChange={(checked) => setVeganOnly(checked === "indeterminate" ? false : checked)} />
             <label htmlFor="vegan" className="text-sm font-medium">
               Vegan
             </label>
