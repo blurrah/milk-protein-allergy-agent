@@ -1,7 +1,10 @@
-import { createStep, createWorkflow } from "@mastra/core";
+import { init } from "@mastra/inngest";
 import z from "zod";
 import { mastra } from "..";
+import { inngest } from "../lib/inngest";
 import { getFoodInformation } from "../tools/get-food-information-tool";
+
+const { createWorkflow, createStep } = init(inngest);
 
 const getFoodInformationStep = createStep({
   id: "get-food-information",

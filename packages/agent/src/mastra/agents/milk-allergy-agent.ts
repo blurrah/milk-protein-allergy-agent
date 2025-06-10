@@ -2,7 +2,7 @@ import { openai } from '@ai-sdk/openai';
 import { Agent } from '@mastra/core/agent';
 import { LibSQLStore } from '@mastra/libsql';
 import { Memory } from '@mastra/memory';
-import { foodWorkflow } from '../workflow/workflow';
+import { foodWorkflow } from '../workflow';
 
 export const milkAllergyAgent = new Agent({
   name: 'Milk Allergy Agent',
